@@ -1,0 +1,674 @@
+* {
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+}
+
+
+body {
+    background: #03050b;
+
+    color: white;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    touch-action: none;
+}
+
+
+.game-shell {
+    position: relative;
+
+    width: 100%;
+    height: 100dvh;
+
+    max-width: 1600px;
+
+    margin: 0 auto;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #17204a,
+            #070a14 65%,
+            #02030a
+        );
+
+    border-radius: 0;
+
+    box-shadow:
+        0 0 50px
+        rgba(0, 220, 255, 0.20);
+}
+
+
+#game {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    touch-action: none;
+}
+
+
+/* ==========================================
+   HUD
+   ========================================== */
+
+.hud {
+    position: absolute;
+
+    top:
+        clamp(
+            10px,
+            2vw,
+            20px
+        );
+
+    left:
+        clamp(
+            10px,
+            2vw,
+            25px
+        );
+
+    right:
+        clamp(
+            10px,
+            2vw,
+            25px
+        );
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+}
+
+
+.hud div {
+    padding:
+        clamp(
+            7px,
+            1.2vw,
+            12px
+        )
+        clamp(
+            10px,
+            1.5vw,
+            16px
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.65
+        );
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.08
+        );
+
+    border-radius:
+        clamp(
+            8px,
+            1vw,
+            12px
+        );
+
+    font-size:
+        clamp(
+            12px,
+            1.6vw,
+            18px
+        );
+
+    font-weight: bold;
+
+    backdrop-filter:
+        blur(6px);
+}
+
+
+.logo {
+    color: #35d7ff;
+
+    text-shadow:
+        0 0 12px
+        rgba(
+            53,
+            215,
+            255,
+            0.6
+        );
+}
+
+
+/* ==========================================
+   TELAS
+   ========================================== */
+
+.screen {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        clamp(
+            15px,
+            4vw,
+            40px
+        );
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.55
+        );
+
+    z-index: 10;
+}
+
+
+.hidden {
+    display: none !important;
+}
+
+
+/* ==========================================
+   PAINEL
+   ========================================== */
+
+.panel {
+    width: min(
+        90%,
+        430px
+    );
+
+    padding:
+        clamp(
+            22px,
+            5vw,
+            40px
+        );
+
+    text-align: center;
+
+    background:
+        rgba(
+            11,
+            15,
+            32,
+            0.96
+        );
+
+    border:
+        1px solid
+        #29304d;
+
+    border-radius:
+        clamp(
+            16px,
+            3vw,
+            24px
+        );
+
+    box-shadow:
+        0 0 35px
+        rgba(
+            53,
+            215,
+            255,
+            0.20
+        );
+}
+
+
+.panel h1 {
+    margin-top: 0;
+
+    margin-bottom:
+        clamp(
+            12px,
+            2vw,
+            20px
+        );
+
+    color: #35d7ff;
+
+    font-size:
+        clamp(
+            26px,
+            6vw,
+            42px
+        );
+
+    text-shadow:
+        0 0 15px
+        rgba(
+            53,
+            215,
+            255,
+            0.5
+        );
+}
+
+
+.panel p {
+    color: #c4c9d8;
+
+    line-height: 1.5;
+
+    font-size:
+        clamp(
+            14px,
+            2.5vw,
+            17px
+        );
+}
+
+
+.panel strong {
+    color: white;
+}
+
+
+/* ==========================================
+   BOTÕES
+   ========================================== */
+
+button {
+    border: none;
+
+    padding:
+        clamp(
+            12px,
+            2vw,
+            15px
+        )
+        clamp(
+            20px,
+            4vw,
+            30px
+        );
+
+    margin-top: 12px;
+
+    border-radius:
+        clamp(
+            8px,
+            1.5vw,
+            12px
+        );
+
+    background:
+        #35d7ff;
+
+    color: #001018;
+
+    font-size:
+        clamp(
+            14px,
+            2.5vw,
+            17px
+        );
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+}
+
+
+button:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 20px
+        rgba(
+            53,
+            215,
+            255,
+            0.6
+        );
+}
+
+
+button:active {
+    transform: scale(0.95);
+}
+
+
+/* ==========================================
+   CONTROLES MOBILE
+   ========================================== */
+
+.mobile-controls {
+    position: absolute;
+
+    bottom:
+        max(
+            18px,
+            env(safe-area-inset-bottom)
+        );
+
+    left:
+        clamp(
+            15px,
+            5vw,
+            40px
+        );
+
+    right:
+        clamp(
+            15px,
+            5vw,
+            40px
+        );
+
+    display: none;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+
+.mobile-controls button {
+    width:
+        clamp(
+            60px,
+            17vw,
+            85px
+        );
+
+    height:
+        clamp(
+            52px,
+            14vw,
+            70px
+        );
+
+    padding: 0;
+
+    margin: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(
+            0,
+            0,
+            0,
+            0.70
+        );
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(
+            255,
+            255,
+            255,
+            0.25
+        );
+
+    border-radius:
+        15px;
+
+    font-size:
+        clamp(
+            20px,
+            6vw,
+            28px
+        );
+
+    backdrop-filter:
+        blur(8px);
+
+    pointer-events: auto;
+
+    user-select: none;
+
+    touch-action: manipulation;
+}
+
+
+.mobile-controls button:active {
+    transform: scale(0.90);
+
+    background:
+        rgba(
+            53,
+            215,
+            255,
+            0.30
+        );
+}
+
+
+/* ==========================================
+   CELULAR
+   ========================================== */
+
+@media (max-width: 700px) {
+
+    .mobile-controls {
+        display: flex;
+    }
+
+
+    .game-shell {
+        width: 100%;
+        height: 100dvh;
+
+        border-radius: 0;
+    }
+
+
+    .hud {
+        top: 10px;
+    }
+
+
+    .panel {
+        width: min(
+            92%,
+            400px
+        );
+    }
+}
+
+
+/* ==========================================
+   CELULAR PEQUENO
+   ========================================== */
+
+@media (max-width: 380px) {
+
+    .hud div {
+        padding:
+            6px 8px;
+
+        font-size:
+            11px;
+    }
+
+
+    .panel {
+        padding:
+            20px 16px;
+    }
+
+
+    .panel h1 {
+        font-size:
+            25px;
+    }
+
+
+    .mobile-controls {
+        bottom:
+            14px;
+    }
+}
+
+
+/* ==========================================
+   TABLET
+   ========================================== */
+
+@media (
+    min-width: 701px
+) and (
+    max-width: 1100px
+) {
+
+    .game-shell {
+        width: 100%;
+        height: 100dvh;
+    }
+
+
+    .mobile-controls {
+        display: flex;
+    }
+}
+
+
+/* ==========================================
+   TABLET HORIZONTAL
+   ========================================== */
+
+@media (
+    min-width: 701px
+) and (
+    max-width: 1100px
+) and (
+    orientation: landscape
+) {
+
+    .mobile-controls {
+        bottom: 18px;
+    }
+}
+
+
+/* ==========================================
+   PC / NOTEBOOK
+   ========================================== */
+
+@media (min-width: 1101px) {
+
+    .game-shell {
+        height: min(
+            100dvh,
+            900px
+        );
+
+        border-radius: 20px;
+
+        margin-top: 0;
+    }
+
+
+    .mobile-controls {
+        display: none;
+    }
+}
+
+
+/* ==========================================
+   TELAS MUITO ALTAS
+   ========================================== */
+
+@media (
+    min-height: 900px
+) and (
+    max-width: 700px
+) {
+
+    .mobile-controls {
+        bottom: 25px;
+    }
+}
+
+
+/* ==========================================
+   NOTCH / CELULAR COM ÁREA SEGURA
+   ========================================== */
+
+@supports (
+    padding: env(safe-area-inset-top)
+) {
+
+    .hud {
+        top:
+            max(
+                10px,
+                env(safe-area-inset-top)
+            );
+    }
+
+
+    .mobile-controls {
+        bottom:
+            max(
+                18px,
+                env(safe-area-inset-bottom)
+            );
+    }
+}

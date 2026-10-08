@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neon Rush</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="game-shell">
+
+    <div class="hud">
+        <div class="logo">🏁 NEON RUSH</div>
+        <div class="score">⭐ <span id="score">0</span></div>
+    </div>
+
+    <canvas id="game"></canvas>
+
+    <section id="start-screen" class="screen">
+        <div class="panel">
+            <h1>🏎️ NEON RUSH</h1>
+
+            <p>
+                Desvie dos carros vermelhos
+                e pegue as moedas!
+            </p>
+
+            <p>
+                Use <strong>← →</strong>
+                ou <strong>A / D</strong>
+            </p>
+
+            <button id="start-button">
+                JOGAR
+            </button>
+        </div>
+    </section>
+
+    <section id="game-over-screen" class="screen hidden">
+        <div class="panel">
+            <h1>💥 BATEU!</h1>
+
+            <p>
+                Pontuação:
+                <strong id="final-score">0</strong>
+            </p>
+
+            <button id="restart-button">
+                JOGAR NOVAMENTE
+            </button>
+        </div>
+    </section>
+
+    <div class="mobile-controls">
+        <button id="left-button">◀</button>
+        <button id="right-button">▶</button>
+    </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
